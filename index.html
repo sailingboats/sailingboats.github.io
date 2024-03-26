@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Windroos</title>
+    <template id="SAILING-BOAT">
+    </template>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./element.js"></script>
+
+<style>
+    boats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: 0;
+        width: 100vh;
+        grid-template-areas: "B9 B0 B1" "B7 x B2" "B7 x B3" "B6 B5 B4";
+    }
+
+    sailing-boat {
+        display: inline-block;
+        width: 100%;
+        max-width: 90vh;
+        max-height: 90vw;
+        height: 100%;
+        margin: 0px;
+    }
+</style>
+<boats id="BOATGRID">
+</boats>
+<script>
+    function rotate(el) {
+        let course = 0;
+        setInterval(() => {
+            //el.course = ++course;
+        }, 100);
+    }
+    // rotate(B1);
+    // rotate(B2);
+    // rotate(B9);
+
+    let koersen = [
+        {
+            naam: "In de wind", koers: 0, slot: 0
+        },
+        {
+            naam: "Hoog aan de wind SB", koers: 30
+        },
+        {
+            naam: "Aan de wind SB", koers: 60
+        },
+        {
+            naam: "Halve wind SB", koers: 90
+        },
+        // {
+        //     naam: "Ruime wind SB", koers: 135
+        // },
+        {
+            naam: "Voor de wind SB", koers: 175
+        },
+        {
+            naam: "Voor wind BB", koers: 185
+        },
+        {
+            naam: "Ruime wind BB", koers: 225
+        },
+        {
+            naam: "Halve wind BB", koers: 270
+        },
+        {
+            naam: "Aan de wind BB", koers: 300
+        },
+        { naam: "Hoog aan de wind BB", koers: 360 }];
+    koersen.map((koers, idx) => {
+        let boat = document.createElement("sailing-boat");
+        boat.course = koers.koers;
+        boat.setAttribute("course", koers.koers);
+        boat.setAttribute("id", "B" + idx);
+        boat.style.gridArea = "B" + (idx + 1);
+        //BOATGRID.appendChild(boat);
+    }); 
+</script>
+<sailing-boat id="B1" course="00" wind="30"></sailing-boat>

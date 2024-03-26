@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="-400 -400 800 800"
+   version="1.1"
+   id="svg901"
+   sodipodi:docname="sailboatdesign1.svg"
+   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata907">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs905" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     id="namedview903"
+     showgrid="true"
+     inkscape:zoom="0.85375"
+     inkscape:cx="839.68615"
+     inkscape:cy="421.88713"
+     inkscape:window-x="1912"
+     inkscape:window-y="217"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Boat">
+    <inkscape:grid
+       type="xygrid"
+       id="grid909" />
+  </sodipodi:namedview>
+  <style
+     id="style833">
+        svg {
+            zoom: 1;
+            transform-origin: 400 400;
+        }
+
+        *[hidden] {
+            display: none;
+        }
+    </style>
+  <g
+     id="player"
+     transform="rotate(0)"
+     transform-origin="0 0">
+    <rect
+       fill="lightblue"
+       x="-400"
+       y="-400"
+       width="100%"
+       height="100%"
+       id="rect835" />
+    <g
+       id="Boat"
+       fill="#808080"
+       stroke-width="4"
+       transform="translate(0.29282577,-3.806735)">
+      <rect
+         id="aftseat"
+         fill="#008000"
+         x="210"
+         y="-50"
+         width="22"
+         height="112"
+         stroke-width="2" />
+      <rect
+         id="centerseat"
+         idx="40"
+         y="-60"
+         width="30"
+         height="130"
+         fill="#a0522d"
+         x="0" />
+      <path
+         d="M -80,40 -155,0 -75,-40 Z"
+         stroke="#000000"
+         stroke-width="2"
+         id="path839" />
+      <path
+         id="hull"
+         fill="#dc143c"
+         fill-rule="evenodd"
+         stroke="#000000"
+         stroke-width="3"
+         d="m -297.55,-2.4040002 c 0,0 143,89.0000002 365,99.0000002 128,6 287,-39 287,-39 l 0.25717,-108.789265 c 0,0 -153.25717,-45.210735 -289.25717,-48.210735 -201,-3 -363,95.9999998 -363,95.9999998 z m 147.172,3.808 c 0,0 84.488174,51.1987352 215.085174,57.4027352 80.365176,0.976735 144.999996,-5 169.999996,-5 v -105 c -25,0 -85,-5 -171.54117,-7.587735 -118.243,-1.862 -213.544,59.5649998 -213.544,59.5649998 z"
+         sodipodi:nodetypes="cccccccccccccc" />
+      <line
+         id="mastplank"
+         fill="seinna"
+         x1="-80"
+         y1="40"
+         x2="-80"
+         y2="-50"
+         stroke-width="2" />
+      <circle
+         cx="-80"
+         cy="40"
+         r="8"
+         fill="#0000ff"
+         stroke="#000000"
+         stroke-width="2"
+         id="circle843" />
+      <circle
+         id="mast"
+         cx="-90"
+         cy="0"
+         r="8"
+         fill="#ff0000"
+         stroke="#000000"
+         stroke-width="2" />
+      <line
+         id="vlonders"
+         x1="-90"
+         y1="0"
+         x2="190"
+         y2="0"
+         stroke-width="2"
+         stroke="#808080" />
+      <g
+         id="afttiller"
+         transform="rotate(45)"
+         transform-origin="320 40">
+        <rect
+           id="tiller"
+           x="190"
+           y="0"
+           width="180"
+           height="6"
+           fill="#a52a2a"
+           stroke="#000000"
+           stroke-width="2" />
+      </g>
+    </g>
+    <g
+       id="guides"
+       stroke="red"
+       stroke-width="2">
+      <circle
+         cx="0"
+         cy="0"
+         r="10"
+         fill="red"
+         stroke="black"
+         stroke-width="2"
+         id="circle850" />
+      <line
+         x1="-400"
+         y1="-400"
+         x2="800"
+         y2="800"
+         id="line852" />
+      <line
+         x1="-800"
+         y1="0"
+         x2="800"
+         y2="0"
+         id="line854" />
+    </g>
+    <g
+       id="oldboat">
+      <style
+         id="style857">
+                svg {
+                    width: 100%;
+                    height: auto;
+                }
+
+                #oldboat path {
+                    fill: none;
+                    stroke: black;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+
+                path:nth-of-type(12) {
+                    stroke: #f00;
+                }
+            </style>
+      <g
+         transform="rotate(180)"
+         transform-origin="220 55"
+         id="g897">
+        <path
+           stroke-width="3"
+           class="outline"
+           d="m95 160v-60l1-23-1-22c0-4 1-6 4-7l12-2 66-15 50-11 56-8c13-2 26-2 40-3l33-1 37 1 39 2 48 5a931 931 0 01168 49c10 3 19 8 29 12l51 23c4 2 7 4 13 7 2 1 2 1 2 3 0 3-2 4-2 4l-37 18-42 19-34 13a575 575 0 01-170 39c-34 4-68 4-101 4l-42-3-33-3a594 594 0 01-94-17l-33-7c-19-4-38-10-57-16l-3-1"
+           id="path859" />
+        <path
+           stroke-width="3"
+           classs="deckline"
+           d="m95 109-1 40c0 5 2 6 6 7l58 16 64 13 33 6 32 3c35 3 69 6 104 5 19-1 39-1 58-3l26-3 9-1m241-86a1121 1121 0 00-223-79l-40-6-38-3-40-3h-34a1153 1153 0 00-75 5c-14 2-28 3-41 6-16 2-31 5-47 9l-57 12c-11 3-22 7-34 9m631 59c-7 1-13 5-19 8a951 951 0 01-219 69h-5"
+           id="path861" />
+        <path
+           stroke-width="3"
+           class="cockpit"
+           d="M624 110c0-2 1-3 3-3h8c0 4-5 6-8 4-7-3-15-1-22-2h-6c-4-1-7 1-10 3-19 13-40 22-61 32-10 1-18 7-27 10l-27 9a535 535 0 0 1-75 12l-38 1c-25 1-50-1-76-3l-46-5-29-4c-4 0-6-2-6-6l2-48M206 105c-1-19 1-37 1-55l31-4 33-3a453 453 0 0 1 83-4 435 435 0 0 1 110 11 626 626 0 0 1 88 34c13 6 25 13 37 21l5 4"
+           id="path863" />
+        <path
+           stroke-width="3"
+           class="tiller"
+           d="M205 109h-23l-17-1H93c-6-1-13 2-20-2l-3-1-34-1h-2"
+           id="path865" />
+        <path
+           stroke-width="3"
+           d="M399 154v-37l1-7c-1-5 1-5 4-4h98l20 1m-153-1h-75l-2 1c2 3 4 2 6 2h30l41 1"
+           id="path867" />
+        <path
+           stroke-width="3"
+           d="M401 110h117c4 0 6 3 10 3h4M370 40v135"
+           id="path869" />
+        <path
+           stroke-width="2"
+           d="m400 42-1 58c0 2-1 4 2 6"
+           id="path871" />
+        <path
+           stroke-width="3"
+           class="bench"
+           d="M249 46v59m-30-55-1 115m182-10-1 16"
+           id="path873" />
+        <path
+           stroke-width="2"
+           class="waterkering"
+           d="M575 105c2 0 2 3 3 5-15 10-30 21-47 28-2 2-4 4-7 4"
+           id="path875" />
+        <path
+           stroke-width="3"
+           class="frontcenterline"
+           d="m732 111-5-1h-39l-49-1m-547 0v50"
+           id="path877" />
+        <path
+           stroke-width="4"
+           class="siderail"
+           d="m335 191 18 1h30"
+           id="path879" />
+        <path
+           stroke-width="3"
+           class="do"
+           d="m577 109-43-1m-270-2c-5-2-9-1-13-1l-2 2-1 6-1 40v16"
+           id="path881" />
+        <path
+           stroke-width="3"
+           class="siderail"
+           d="M386 21h-20l-23-1h-6"
+           id="path883" />
+        <path
+           stroke-width="1"
+           class="grootschoot"
+           d="M293 107c-8-2-16-2-23 0h-5"
+           id="path885" />
+        <path
+           stroke-width="3"
+           d="M293 109c-8 0-15 1-22-1"
+           id="path887" />
+        <path
+           stroke-width="4"
+           class="nagelbank"
+           d="m522 74 2 2v27l-1 8"
+           id="path889" />
+        <path
+           stroke-width="2"
+           class="mast"
+           d="M525 103c8 0 9 1 7 9"
+           id="path891" />
+        <path
+           stroke-width="4"
+           class="clete rear port"
+           d="M179 44c0 1 0 3-3 3-1 0-3-1-4 1"
+           id="path893" />
+        <path
+           stroke-width="3"
+           d="M524 113c-2 4-1 8-1 12v19m-301-37"
+           id="path895" />
+      </g>
+    </g>
+  </g>
+</svg>

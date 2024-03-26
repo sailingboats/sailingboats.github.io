@@ -1,0 +1,112 @@
+        <svg viewBox="-400 -400 800 800" xmlns="http://www.w3.org/2000/svg">
+            <rect fill="lightblue" x="-400" y="-400" width="100%" height="100%" />
+            <style>
+                svg {
+                    --sailcolor: papayawhip;
+                    --deckcolor: crimson;
+                    --mastcolor: darkslategray;
+                    --seat1color: sienna;
+                    --seat2color: red;
+                    --mainsailwidth: 30;
+                    --headsailwidth: calc(var(--mainsailwidth) - 10);
+
+                    transform-origin: 400 400;
+                    background-image: url(./ripples-water-waves.webp);
+                    background-size: 100% 100%;
+                }
+
+                *[hidden] {
+                    display: none;
+                }
+            </style>
+            <g transform="translate(-80 -110 ) scale(.9 .9)">
+                <g id="sailingboat" transform="rotate(0)" transform-origin="0 0">
+                    <!-- <rect fill="lightblue" x="-400" y="-400" width="100%" height="100%" /> -->
+                    <g id="Boat" fill="grey" stroke-width="4">
+                        <path id="floor" fill="darkgrey"
+                            d="m-150 4c0 0 83 51 215 57 80 1 145-5 170-5v-105c-25 0-85-5-172-8-118-2-214 60-214 60z" />
+                        <rect id="aftseat" fill="var(--seat1color)" x="200" y="-50" width="32" height="112" fill="green"
+                            stroke-width="2" />
+                        <rect id="centerseat" idx="40" y="-60" width="30" height="130" fill="sienna" />
+                        <g id="nagelbank">
+                            <path d="M-80 40l-75-40l75-40z" stroke="black" stroke-width="2" />
+                            <circle cx="-80" cy="-23" r="3" fill="black" />
+                            <circle cx="-80" cy="-13" r="3" fill="black" />
+                            <circle cx="-80" cy="13" r="3" fill="black" />
+                            <circle cx="-80" cy="23" r="3" fill="black" />
+                        </g>
+                        <line id="mastplank" fill="var(--seat1color)" x1="-80" y1="40" x2="-80" y2="-40"
+                            stroke-width="2" />
+                        <circle id="mast" cx="-90" cy="0" r="8" fill="var(--mastcolor)" stroke="black"
+                            stroke-width="2" />
+                        <line id="vlonders" x1="-90" y1="0" x2="290" y2="0" stroke-width="2" stroke="grey" />
+                        <path fill="var(--deckcolor)" fill-rule="evenodd" stroke="grey"
+                            d="m-298-2c0 0 143 89 365 99 128 6 287-39 287-39l0-109c0 0-153-45-289-48-201-3-363 96-363 96zm147 4c0 0 83 51 215 57 80 1 145-5 170-5v-105c-25 0-85-5-172-8-118-2-214 60-214 60z" />
+                        <g id="rails" stroke-width="2" stroke="darkgrey" x1="25">
+                            <line id="rail_port" y1="-80" x2="100" y2="-80" />
+                            <line id="rail_port" y1="85" x2="100" y2="85" />
+                        </g>
+                        <g id="cletes">
+                            <line id="clete" x1="-200" y1="0" x2="-180" y2="0" stroke="#CD7F32" stroke-width="3"
+                                stroke-linecap="round" />
+                            <use href="#clete" x="470" y="-105" transform="rotate(11)" />
+                            <use href="#clete" x="470" y="115" transform="rotate(-11)" />
+                        </g>
+                        <g id="afttiller" transform="rotate(0)" transform-origin="320 40">
+                            <rect id="tiller" x="190" y="0" width="180" height="6" fill="brown" stroke="black"
+                                stroke-width="2" />
+                        </g>
+                    </g>
+                    <g id="sails">
+                        <style>
+                            #sails {
+                                --sailcolor: papayawhip;
+                                --mainsailwidth: 30;
+                                --headsailwidth: calc(var(--mainsailwidth) - 10);
+                            }
+
+                            #sails path {
+                                stroke: var(--sailcolor);
+                                fill: beige;
+                                stroke-width: 4;
+                            }
+                        </style>
+                        <g id="mainsail" transform="rotate(0)" transform-origin="-90 0">
+                            <path d="m-100 0q75-31 120 0t120 0 120 0">
+                                <animate attributeName="d" dur="2s" repeatCount="indefinite" values="
+                                        m-100 0q75-31 120 0t120 0 120 0;
+                                        m-100 0q-15 21 120 0t120 0 120 0;
+                                        m-100 0q75-31 120 0t120 0 120 0" />
+                                </animate>
+                            </path>
+                        </g>
+                        <g id="jib" transform="rotate(0)" transform-origin="-90 0">
+                            <path d="m-300 0q75-31 102 0t80-0">
+                                <animate attributeName="d" dur="2s" repeatCount="indefinite" values="
+                                        m-300 0q75-31 102 0t80-0;
+                                        m-300 0q-15 21 102 0t80-0;
+                                        m-300 0q75-31 102 0t80-0" />
+                                </animate>
+                            </path>
+                        </g>
+                    </g>
+
+                    <g id="crew" fill="gold" stroke="black" stroke-width="2">
+                        <circle id="crew1" cx="215" cy="-30" r="20" />
+                        <circle id="crew2" cx="205" cy="-50" r="20" />
+                        <circle id="crew3" cx="160" cy="-50" r="20" />
+                        <circle id="crew5" cx="90" cy="-30" r="20" />
+                        <circle id="crew4" cx="90" cy="-50" r="20" />
+                        <!-- port -->
+                        <circle id="crew6" cx="215" cy="30" r="20" />
+                        <circle id="crew7" cx="205" cy="50" r="20" />
+                        <circle id="crew8" cx="160" cy="50" r="20" />
+                        <circle id="crew10" cx="90" cy="30" r="20" />
+                        <circle id="crew91" cx="90" cy="50" r="20" />
+                    </g>
+                </g>
+                <text x="0" y="130">NORTH</text>
+                <circle cx="0" cy="0" r="40" fill="green" />
+            </g>
+        </svg>
+
