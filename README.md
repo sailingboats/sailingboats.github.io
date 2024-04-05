@@ -1,2 +1,2 @@
 # sailingboats.github.io
-&lt;sail-boat> Web Components for eductaional puposus
+&lt;sail-boat> Web Components 

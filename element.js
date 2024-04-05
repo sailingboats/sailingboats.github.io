@@ -14,50 +14,64 @@ customElements.define('sailing-boat', class extends HTMLElement {
         );
     };
     renderboat() {
-        this.shadowRoot.innerHTML = /*html*/`<svg viewBox="-300 -300 1000 1000" xmlns="http://www.w3.org/2000/svg">
+        let design = {
+            waterbackground: "lightblue",
+            sailcolor: "papayawhip",
+            sailfill: "beige",
+            deckcolor: "crimson",
+            mastcolor: "darkslategray",
+            steerseatcolor: "sienna",
+            midseatcolor: "sienna",
+        }
+        this.shadowRoot.innerHTML = /*html*/`
+        <svg viewBox="-300 -300 1000 1000" xmlns="http://www.w3.org/2000/svg">
+            <style>
+                svg {
+                transform-origin: 400 400;
+                background: ${design.waterbackground};
+                xbackground-image: url(./ripples-water-waves.webp);
+                }
+                #deck {
+                    filter: url(#blackdropshadow);
+                }
+                *[hidden] {
+                    display: none;
+                }
+                #sails path {
+                    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+                }
+                #navtext {
+                    font - size: 100px;
+                    font-family: Arial, sans-serif;
+                    fill: black;
+                }
+         </style>
             <defs>
                 <filter id="blackdropshadow" width="120" height="120">
                     <feOffset in="SourceAlpha" dx="10" dy="10" />
                     <feGaussianBlur stdDeviation="10" />
                     <feBlend in="SourceGraphic" in2="blurOut" />
                 </filter>
-
+                <pattern id="waterpattern" viewBox="0 0 60 10" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse"
+                    x="0" y="0" width="20" height="20" >
+                    <path d="M0 0Q10 5 20 0T40 0" fill="none" stroke="blue" stroke-width=".5" transform="rotate(-0)" opacity="1"/>
+            </pattern>
             </defs>
-            <style>
-                svg {
-                    --sailcolor: papayawhip;
-                --deckcolor: crimson;
-                --mastcolor: darkslategray;
-                --seat1color: sienna;
-                --seat2color: red;
-                --mainsailwidth: 30;
-                --headsailwidth: calc(var(--mainsailwidth) - 10);
-
-                transform-origin: 400 400;
-                background: lightblue;
-                xbackground-image: url(./ripples-water-waves.webp);
-                background-size: 100% 100%;
-                }
-
-                #deck {
-                    fill: var(--deckcolor);
-                filter: url(#blackdropshadow);
-                }
-
-                *[hidden] {
-                    display: none;
-                }
-            </style>
+            <g id="rotate_water" transform="rotate(0)">
+                <rect x="-300" y="-300" width="1300" height="1300" fill="url(#waterpattern)" 
+                    transform="scale(2)" transform-origin="350 350"/>
+            </g>
             <g id="move" transform="translate(0 0)">
                 <g transform="rotate(90) translate(190 125) scale(1 1)" transform-origin="180 120">
                     <g id="sailingboat" course>
                         <path id="floor" fill="darkgrey"
                             d="m-150 4c0 0 75 56 215 60 80-1 149 3 170-5v-105c-25-9-85-5-171-13-120-2-220 60-215 60z" />
-                        <rect id="aftseat" fill="var(--seat1color)" x="200" y="-50" width="32" height="112" fill="green"
-                            stroke-width="2" />
-                        <rect id="centerseat" idx="40" y="-60" width="30" height="130" fill="sienna" />
+                            <g id="seats" fill="${design.steerseatcolor}">
+                        <rect id="steerseat" x="200" y="-60" width="32" height="130" />
+                        <rect id="centerseat" x="40" y="-60" width="32" height="130"/>
+                            </g>
                         <g id="nagelbank">
-                            <path d="M-80 40l-75-40l75-40z" stroke="black" stroke-width="2" />
+                            <path d="M-80 40l-75-40l75-40z" stroke="black" stroke-width="2" fill="darkred"/>
                             <g fill="darkgrey" stroke="black">
                                 <circle cx="-80" cy="-23" r="4" />
                                 <circle cx="-80" cy="-13" r="4" />
@@ -65,10 +79,11 @@ customElements.define('sailing-boat', class extends HTMLElement {
                                 <circle cx="-80" cy="23" r="4" />
                             </g>
                         </g>
-                        <line id="mastplank" fill="var(--seat1color)" x1="-80" y1="40" x2="-80" y2="-40"
-                            stroke-width="2" />
                         <line id="centerline" x1="-90" y1="0" x2="290" y2="0" stroke-width="2" stroke="grey" />
-                        <path id="deck" fill="var(--deckcolor)" fill-rule="evenodd" stroke="grey"
+                        <path id="deck"
+                        fill="${design.deckcolor}" 
+                        fill-rule="evenodd" 
+                        stroke="grey"
                             d="m-298-2c0 0 143 89 365 99 128 6 287-39 287-39l0-109c0 0-153-45-289-48-201-3-363 96-363 96zm147 4c0 0 83 51 215 57 80 1 145-5 170-5v-105c-25 0-85-5-172-8-118-2-214 60-214 60z" />
                         <g id="rails" stroke-width="2" stroke="darkgrey" x1="25">
                             <line id="rail_port" y1="-80" x2="100" y2="-80" />
@@ -80,160 +95,138 @@ customElements.define('sailing-boat', class extends HTMLElement {
                             <use href="#clete" x="470" y="-105" transform="rotate(11)" />
                             <use href="#clete" x="470" y="115" transform="rotate(-11)" />
                         </g>
-                        <g id="afttiller" transform="rotate(0)" transform-origin="320 40">
-                            <rect id="tiller" x="190" y="0" width="180" height="6" fill="brown" stroke="black"
-                                stroke-width="2" />
+                        <g id="rotate_afttiller" transform="rotate(10)" transform-origin="320 40">
+                            <rect id="tiller" x="190" y="-2" width="180" height="6" fill="brown" stroke="black"
+                                stroke-width="1.5" />
                         </g>
-                        <g id="sails">
-                            <style>
-                                #sails {
-                                    --sailcolor: papayawhip;
-                                --mainsailwidth: 30;
-                                --headsailwidth: calc(var(--mainsailwidth) - 10);
-                                }
-
-                                #sails path {
-                                    stroke: var(--sailcolor);
-                                fill: beige;
-                                stroke-width: 7;
-                                filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-                                }
-                            </style>
-                            <g id="mainsail" transform="rotate(0)" transform-origin="-90  0">
-                                <g>
-                                    <path d="m-90 0t10 25 340-25">
-                                        <animate id="animatemain" attributeName="d" dur="2s" repeatCount="indefinite">
-                                        </animate>
-                                    </path>
-                                </g>
+                        <g id="sails" stroke="${design.sailcolor}" fill-opacity=".7" fill="${design.sailfill}" stroke-width="10",>
+                            <g id="rotate_mainsail" transform="rotate(0)" transform-origin="-100 0">
+                                <path d="m-90 0h100">
+                                    <animate id="animatemain" attributeName="d" dur="2s" repeatCount="indefinite">
+                                    </animate>
+                                </path>
                             </g>
-                            <g id="jib" transform="rotate(0)" transform-origin="-290 0">
-                                <path direction="45" d="m-300 0q75-31 102 0t80-0">
+                            <g id="rotate_jib" transform="rotate(0)" transform-origin="-290 0">
+                                <!-- JIB sail -->
+                                <path d="M-300 0h190">
                                     <animate id="animatejib" attributeName="d" dur="2s" repeatCount="indefinite">
                                     </animate>
                                 </path>
                             </g>
-                            <circle id="mast" cx="-95" cy="0" r="10" fill="var(--mastcolor)" stroke="black"
-                                stroke-width="2" />
+                            <circle id="mast" cx="-95" cy="0" r="10" fill="${design.mastcolor})" stroke="black" stroke-width="2" />
                         </g>
-
-                        <g id="crew" fill="gold" stroke="black" stroke-width="2">
-                        </g>
+                        <g id="crew" fill="gold" stroke="black" stroke-width="2"><!--injected crew--></g>
                     </g>
                 </g>
-                <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
-                    <mpath href="#c11" />
-                </animateMotion>
             </g>
-            <path id="c1" d="M-200 0q200 200 400 0" fill="none" stroke="black" stroke-width="2" />
-            <style>
-                #navtext {
-                    font - size: 100px;
-                font-family: Arial, sans-serif;
-                fill: black;
-                }
-            </style>
-            <text x="450" y="-190" id="navtext">NAV</text>
-
+            <!-- maybe animate boat <path id="c1" d="M-200 0q200 200 400 0" fill="none" stroke="black" stroke-width="2" /> -->
+            <text x="500" y="-250" id="navtext">NAV</text>
+            <image href="person.png" x="36%" y="12%" width="5%" height="5%" />
         </svg>`
+        this.svg = this.shadowRoot.querySelector("svg");
         console.log(` %c SVG boatdrawn `, "background:blue;color:beige")
     }
     sailing(course = 0, main = 0, jib = main) {
-        this.course = course;
-        this.mainsail = main;
+        console.log(` %c sailing `, "background:blue;color:red", course, main, jib)
+        this.direction = (course < 0) ? "port" : "starboard";
+        this.course = ~~course;
+        this.mainsail = ~~(course - main);
         this.jib = jib;
+        this.wind = main;
+        console.warn("SAILING course:", this.course, "wind:", this.wind, "main:", this.mainsail, "jib:", this.jib);
+        this.query("#navtext").innerHTML = `course:${course}deg wind:${this.wind}deg`;
     }
     rotation(selector) {
         let element = this.query(selector);
-        let transform = element.getAttribute('transform');
-        if (transform && transform.includes('rotate')) {
-            return parseInt(transform.match(/\d+/)[0], 10);
-        } else {
-            console.error('No rotation found on element', element);
+        try {
+            let transform = element.getAttribute('transform');
+            if (transform && transform.includes('rotate')) {
+                return parseInt(transform.match(/\d+/)[0], 10);
+            } else {
+                console.error('No rotation found on element', element);
+            }
+        } catch (e) {
+            console.error("missing selector", selector)
         }
     }
     setrotation(selector, deg) {
-        this.query(selector).setAttribute('transform', `rotate(${deg})`);
-        console.log(selector, deg);
+        let el = this.query(selector);
+        el.setAttribute('transform', `rotate(${deg})`);
+        console.log(` %c setrotation %c ${selector} %c ${deg}deg`, "background:blue;color:white", "background:firebrick;color:gold", "background:blue;color:white");
     }
     get jib() {
-        return this.rotation('#jib');
+        return this.rotation('#rotate_jib');
     }
     set jib(deg) {
-        deg = ~~deg;
-        this.setrotation('#jib', deg);
-        let sail_0 = [
+        let sails =
+            [
+                "m-300 0c0 0-50-.2 0-250",
+                "m-300 0c0 0-48.2-13.1 64.7-241.5",
+                "m-300 0c0 0-43.2-25.1 125-216.5",
+                "m-300 0c0 0 1.2-58.6 176.8-176.8",
+                "m-300 0c0 0 16.3-56.3 216.5-125",
+                "m-300 0c0 0 38.9-35.4 241.5-64.7",
+                "m-300 0c0 0 46.7-24.1 250 0"
+            ].join(";");
+        let luffing = [
             "m-300 0q75-31 102 0t80-0",
             "m-300 0q-15 21 102 0t80-0",
-            "m-300 0q75-31 102 0t80-0"];
-
-        let values = "";
-        if (deg > 350 || deg < 10) values = sail_0.join(";");
-        else if (deg > 305 || deg < 55) values = sail_0.join(";");
-        this.query("#animatejib").setAttribute("values", values);
-        console.log(` %c jib %sdeg `, "background:blue;color:white", deg, values.split(";"));
+            "m-300 0q75-31 102 0t80-0"].join(";");
+        this.query("#animatejib").setAttribute("values", sails);
     }
     get mainsail() {
-        return this.rotation('#mainsail');
+        return this.rotation('#rotate_mainsail');
     }
     set mainsail(deg) {
-        deg = ~~deg;
-        this.setrotation('#mainsail', deg);
-        let sail_0 = [
-            "m-100 0q75-31 120 0t120 0 120 0",
-            "m-100 0q-15 21 120 0t120 0 120 0",
-            "m-100 0q75-31 120 0t120 0 120 0"];
-        let sail_1 = [
-            "m-100 0q75-31 120 0t120 0 120 0",
-            "m-100 0q-15 21 120 0t120 0 120 0",
-            "m-100 0q75-31 120 0t120 0 120 0"];
-
-        let values = "";
-        if (deg > 350 || deg < 10) values = sail_0.join(";");
-        else if (deg > 305 || deg < 55) values = sail_1.join(";");
-        this.query("#animatemain").setAttribute("values", values);
-        console.warn("mainsail", deg, values.length, values, this.query("#animatemain"));
+        let direction = (deg < 0) ? -1 : 1;
+        let absolute_deg = Math.abs(deg);
+        let sailrotate = direction * absolute_deg;
+        this.setrotation('#rotate_mainsail', (direction * .8) * sailrotate); //! negate!
+        let luffing =
+            `m-100 0q75-31 120 0t120 0 120 0;` +
+            `m-100 0q-15 21 120 0t120 0 120 0;` +
+            `m-100 0q75-31 120 0t120 0 120 0`;
+        let sailpath =
+            [
+                "M-100 0H380", // flat line
+                "M-100 0C2 50 150 0 280 0", // curved in 50
+                "M-100 0C2-50 150 0 280 0" // curved in -50
+            ][
+            this.direction == "port" ? 1 : 2
+            ];
+        // let sailpath = "M-100h380";
+        console.log(absolute_deg > -10 && absolute_deg < 11)
+        if (absolute_deg > -10 && absolute_deg < 11) sailpath = luffing; // in de wind
+        this.query("#animatemain")?.setAttribute("values", sailpath) ?? console.error("animatemain not found");
+        console.log(` %c mainsail %sdeg `, "background:blue;color:white", deg, sailpath);
     }
+
     query(selector) {
-        return this.shadowRoot.querySelector(selector);
+        try {
+            return this.shadowRoot.querySelector(selector);
+        } catch (e) {
+            console.error("missing selector", selector)
+        }
     }
     get wind() {
-        return this.rotation('#mainsail');
+        return ~~this.getAttribute('wind');
     }
     set wind(deg) {
-        this.main = deg;
-        this.jib = deg;
+        console.warn("Start with wind orientation", deg);
+        this.setrotation('#rotate_water', deg);
+        // this.main = deg;
+        // this.jib = deg;
     }
     get course() {
         return ~~this.getAttribute('course');
     }
     set course(deg) {
         if (!this.isConnected) return
-        deg = deg % 360;
-        this.setAttribute('course', deg);
-        this.query("#sailingboat").style.transform = `rotate(${this.getAttribute('course')}deg)`;
-        this.query("#navtext").innerHTML = deg;
+        this.boatcourse = deg % 360;
     }
-    showmainsail(deg) {
-        let sailpath = ``
-        if (deg > 0) sailpath = `1`;
-        if (deg > 20 && deg < 40) sailpath = `2`;
-        if (deg > 40 && deg < 60) sailpath = `3`;
-        if (deg > 60 && deg < 80) sailpath = `4`;
-        if (deg > 80 && deg < 100) sailpath = `5`;
-        if (deg > 100 && deg < 120) sailpath = `6`;
-        if (deg > 120 && deg < 140) sailpath = `7`;
-        if (deg > 140 && deg < 160) sailpath = `8`;
-        if (deg > 160 && deg < 180) sailpath = `9`;
-        if (deg > 180 && deg < 200) sailpath = `10`;
-        if (deg > 200 && deg < 220) sailpath = `11`;
-        if (deg > 220 && deg < 240) sailpath = `12`;
-        if (deg > 240 && deg < 260) sailpath = `13`;
-        if (deg > 260 && deg < 280) sailpath = `14`;
-        if (deg > 280 && deg < 300) sailpath = `15`;
-        if (deg > 300 && deg < 320) sailpath = `16`;
-        if (deg > 320 && deg < 340) sailpath = `17`;
-        if (deg > 340) sailpath = `18`;
+    set boatcourse(deg) {
+        this.query("#sailingboat").setAttribute("transform", `rotate(${deg})`);
+        this.setAttribute('course', deg);
     }
     get course() { return this.getAttribute('course') }
     passengers(passengers = [1, 3, 4, 7]) {
